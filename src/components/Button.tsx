@@ -2,6 +2,7 @@ import React from 'react';
 import { iButton } from '../interfaces';
 
 export default function Button({
+  type,
   name,
   handleClick,
   disabled,
@@ -9,7 +10,7 @@ export default function Button({
 }: iButton) {
   return (
     <button
-      type={ 'button' || 'submit' }
+      type={ type ? 'submit' : 'button' }
       name={ name }
       onClick={ handleClick }
       disabled={ disabled }

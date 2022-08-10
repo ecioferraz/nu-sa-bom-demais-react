@@ -3,7 +3,7 @@ import { MouseEventHandler } from 'react';
 interface iButton {
   name: string,
   handleClick: MouseEventHandler<HTMLButtonElement>,
-  type?: string,
+  type?: boolean,
   disabled?: boolean,
   className: string,
 }
