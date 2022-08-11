@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import SearchContext from '../contexts/SearchContext';
 import { iProduct } from '../interfaces';
 import { getData } from '../services/APIRequests';
 import Categories from '../templates/Categories';
@@ -6,6 +7,7 @@ import Products from '../templates/Products';
 import SearchForm from '../templates/SearchForm';
 
 export default function Home() {
+  const { searchInput } = useContext(SearchContext);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('');
   const [products, setProducts] = useState<iProduct[]>([]);
@@ -37,7 +39,9 @@ export default function Home() {
         handleChange={ setSelectedCategory }
       />
       <Products
-        products={ displayedProducts }
+        products={ displayedProducts
+          .filter(({ name }) => name.toLowerCase().includes(searchInput))
+        }
       />
     </main>
   );
