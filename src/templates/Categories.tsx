@@ -13,7 +13,7 @@ export default function Categories({
         name="categories"
         handleChange={ handleChange }
         type="radio"
-        options={ categories }
+        options={ ['All', ...categories] }
       />
     </aside>
   );
