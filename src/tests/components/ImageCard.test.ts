@@ -1,6 +1,6 @@
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import ImageCard from '../../components/ImageCard';
+import { ImageCard } from '../../components';
 
 describe('Components', () => {
   let container: Element | null = null;
