@@ -1,5 +1,5 @@
 import React from 'react';
-import iImageCard from '../interfaces/iImageCard';
+import { iImageCard } from '../interfaces';
 
 export default function ImageCard({ imageURL, name, className }: iImageCard) {
   return (
