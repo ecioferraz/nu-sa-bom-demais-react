@@ -40,9 +40,7 @@ describe('Components', () => {
       textInput = container?.querySelector('input');
     });
 
-    afterEach(() => {
-      textInput = null;
-    });
+    afterEach(() => textInput = null);
 
     it('should render a text input', () => {
       expect(textInput).toBeTruthy();
