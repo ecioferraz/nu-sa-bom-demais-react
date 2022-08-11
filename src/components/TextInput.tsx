@@ -2,14 +2,20 @@ import React from 'react';
 import iTextInput from '../interfaces/iTextInput';
 
 export default function TextInput({
-  name, labelText, className, value, handleChange, placeholder,
+  name,
+  labelText,
+  className,
+  type,
+  value,
+  handleChange,
+  placeholder,
 }: iTextInput) {
   return (
     <>
       <label htmlFor={ name }>{ `${labelText} ` }</label>
       <input
         className={ className }
-        type="text"
+        type={ type }
         name={ name }
         value={ value }
         onChange={ handleChange }
