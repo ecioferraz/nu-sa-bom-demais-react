@@ -10,14 +10,15 @@ export default function RadioInput({
 }: iRadioInput) {
   return (
     <>
-      {options.map((option) => (
-        <label htmlFor={ name } key={ option }>
+      {options.map((option, i) => (
+        <label key={ i }>
           <input
             className={ className }
             name={ name }
+            value={ option }
             onChange={ ({ target: { value } }) => handleChange(value) }
-            id={ name }
             type={ type }
+            defaultChecked={ i === 0 }
           />
           { option }
         </label>
