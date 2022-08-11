@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 interface iTextInput {
   name: string,
@@ -6,7 +6,7 @@ interface iTextInput {
   className: string,
   type: string,
   value: string,
-  handleChange: ChangeEventHandler<HTMLInputElement>,
+  handleChange: Dispatch<SetStateAction<string>>,
   placeholder?: string,
 }
 

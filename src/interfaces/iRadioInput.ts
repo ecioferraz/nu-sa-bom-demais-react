@@ -1,10 +1,10 @@
-import { ChangeEventHandler } from 'react';
+import { Dispatch, SetStateAction } from 'react';
 
 interface iRadioInput {
   className: string,
   name: string,
   options: Array<string>,
-  handleChange: ChangeEventHandler<HTMLInputElement>,
+  handleChange: Dispatch<SetStateAction<string>>,
   type: string,
 }
 
