@@ -1,21 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Button, TextInput } from '../components';
+import SearchContext from '../contexts/SearchContext';
 
 export default function SearchForm() {
-  const [searchInput, setSearchInput] = useState('');
+  const { searchInput, setSearchInput } = useContext(SearchContext);
 
   return (
     <form>
       <TextInput
         name="search-input"
+        className="search-input"
         type='search'
         value={ searchInput }
-        onChange={ () => setSearchInput(searchInput) }
+        handleChange={ setSearchInput }
         placeholder="Buscar por..."
       />
       <Button
-        name="search-btn"
-        handleClick={ () => {} }
+        name="Buscar"
+        handleClick={ () => { return; } }
         className="search-btn"
       />
     </form>

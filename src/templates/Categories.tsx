@@ -2,13 +2,16 @@ import React from 'react';
 import { RadioInput } from '../components';
 import { iCategories } from '../interfaces';
 
-export default function Categories({ adjectives: categories }: iCategories) {
+export default function Categories({
+  adjectives: categories,
+  handleChange,
+}: iCategories) {
   return (
     <aside>
       <RadioInput
         className="categories"
         name="categories"
-        onChange={ () => {} }
+        handleChange={ handleChange }
         type="radio"
         options={ categories }
       />
