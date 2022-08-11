@@ -26,7 +26,7 @@ export default function Home() {
     getCategories();
   }, []);
 
-  const displayedProducts = !selectedCategory || selectedCategory === 'All'
+  const displayedProducts = selectedCategory === 'All'
     ? products
     : products.filter(({ details: { adjective } }) =>
       adjective.includes(selectedCategory));
