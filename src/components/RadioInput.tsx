@@ -11,11 +11,11 @@ export default function RadioInput({
   return (
     <>
       {options.map((option) => (
-        <label htmlFor={ name } key={ name }>
+        <label htmlFor={ name } key={ option }>
           <input
             className={ className }
             name={ name }
-            onChange={ handleChange }
+            onChange={ ({ target: { value } }) => handleChange(value) }
             id={ name }
             type={ type }
           />

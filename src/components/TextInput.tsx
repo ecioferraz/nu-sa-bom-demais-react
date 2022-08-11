@@ -12,13 +12,13 @@ export default function TextInput({
 }: iTextInput) {
   return (
     <>
-      <label htmlFor={ name }>{ `${labelText} ` }</label>
+      <label htmlFor={ name }>{ labelText && `${labelText} ` }</label>
       <input
         className={ className }
         type={ type }
         name={ name }
         value={ value }
-        onChange={ handleChange }
+        onChange={ ({ target: { value } }) => handleChange(value) }
         id={ name }
         placeholder={ placeholder }
       />
