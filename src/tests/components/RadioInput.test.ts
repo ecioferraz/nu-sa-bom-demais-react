@@ -1,6 +1,6 @@
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { SelectInput } from '../../components';
+import { RadioInput } from '../../components';
 
 describe('Components', () => {
   let container: Element | null = null;
@@ -18,8 +18,8 @@ describe('Components', () => {
     }
   });
 
-  describe('<SelectInput />', () => {
-    let selectInput: HTMLSelectElement | null | undefined;
+  describe('<RadioInput />', () => {
+    let radioInput: HTMLInputElement | null | undefined;
     let label: HTMLLabelElement | null | undefined;
 
     const onChange = jest.fn;
@@ -27,33 +27,33 @@ describe('Components', () => {
     beforeEach(() => {
       act(() => {
         render(
-          SelectInput({
+          RadioInput({
             className: 'test',
-            labelText: 'test',
             name: 'test',
             value: 'test1',
             options: ['test1', 'test2'],
             handleChange: onChange,
+            type: 'radio'
           }),
           container,
         );
       });
 
-      selectInput = container?.querySelector('select');
+      radioInput = container?.querySelector('input');
       label = container?.querySelector('label');
     });
 
-    afterEach(() => selectInput = null);
+    afterEach(() => radioInput = null);
 
-    it('should render a select input', () => {
-      expect(selectInput).toBeTruthy();
+    it('should render a radio input', () => {
+      expect(radioInput).toBeTruthy();
     });
 
-    it('should render the select input props correctly', () => {
-      expect(selectInput?.getAttribute('class')).toBe('test');
-      expect(selectInput?.getAttribute('name')).toBe('test');
-      expect(selectInput?.value).toBe('test1');
-      expect(label?.textContent).toBe('test ');
+    it('should render the radio input props correctly', () => {
+      expect(radioInput?.getAttribute('class')).toBe('test');
+      expect(radioInput?.getAttribute('name')).toBe('test');
+      expect(radioInput?.value).toBe('test1');
+      expect(label?.textContent).toBe('test1');
       expect(label?.getAttribute('for')).toBe('test');
     });
   });
