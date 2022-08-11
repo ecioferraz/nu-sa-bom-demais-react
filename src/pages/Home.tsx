@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Loading from '../components/Loading';
 import SearchContext from '../contexts/SearchContext';
 import { iProduct } from '../interfaces';
 import { getData } from '../services/APIRequests';
@@ -10,6 +11,7 @@ export default function Home() {
   const { searchInput } = useContext(SearchContext);
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState<iProduct[]>([]);
 
   const serializeCategories = (data: iProduct[]) => Array.from(
@@ -17,13 +19,15 @@ export default function Home() {
       product.details.adjective).sort()));
   
   useEffect(() => {
-    const getCategories = async () => {
+    const getProducts = async () => {
+      setIsLoading(true);
       const { data } = await getData('devnology/european_provider');
       setProducts(data);
       setCategories(serializeCategories(data));
+      setIsLoading(false);
       return data;
     };
-    getCategories();
+    getProducts();
   }, []);
 
   const displayedProducts = selectedCategory === 'All'
@@ -34,10 +38,10 @@ export default function Home() {
   return (
     <main>
       <SearchForm />
-      <Categories
+      { isLoading ? <Loading /> : <Categories
         adjectives={ categories }
         handleChange={ setSelectedCategory }
-      />
+      /> }
       <Products
         products={ displayedProducts
           .filter(({ name }) => name.toLowerCase().includes(searchInput))
