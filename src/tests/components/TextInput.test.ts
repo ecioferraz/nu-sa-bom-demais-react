@@ -28,6 +28,7 @@ describe('Components', () => {
         render(
           TextInput({
             className: 'test',
+            type: 'search',
             name: 'test',
             labelText: 'test',
             value: 'test',
@@ -51,7 +52,7 @@ describe('Components', () => {
       expect(textInput?.getAttribute('name')).toBe('test');
       expect(textInput?.value).toBe('test');
       expect(textInput?.getAttribute('id')).toBe('test');
-      expect(textInput?.getAttribute('type')).toBe('text');
+      expect(textInput?.getAttribute('type')).toBe('search');
       expect(textInput?.getAttribute('placeholder')).toBeNull();
     });
 

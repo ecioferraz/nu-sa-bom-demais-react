@@ -30,7 +30,6 @@ describe('Components', () => {
           RadioInput({
             className: 'test',
             name: 'test',
-            value: 'test1',
             options: ['test1', 'test2'],
             handleChange: onChange,
             type: 'radio'
@@ -52,7 +51,6 @@ describe('Components', () => {
     it('should render the radio input props correctly', () => {
       expect(radioInput?.getAttribute('class')).toBe('test');
       expect(radioInput?.getAttribute('name')).toBe('test');
-      expect(radioInput?.value).toBe('test1');
       expect(label?.textContent).toBe('test1');
       expect(label?.getAttribute('for')).toBe('test');
     });
