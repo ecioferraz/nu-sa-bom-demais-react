@@ -24,6 +24,11 @@ export default function Home() {
     getCategories();
   }, []);
 
+  const displayedProducts = !selectedCategory || selectedCategory === 'All'
+    ? products
+    : products.filter(({ details: { adjective } }) =>
+      adjective.includes(selectedCategory));
+
   return (
     <main>
       <SearchForm />
@@ -32,7 +37,7 @@ export default function Home() {
         handleChange={ setSelectedCategory }
       />
       <Products
-        products={ products }
+        products={ displayedProducts }
       />
     </main>
   );
