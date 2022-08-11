@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from 'react';
 
-interface iRadioInput {
+interface iCheckInput {
   className: string,
   name: string,
   options: Array<string>,
@@ -8,4 +8,4 @@ interface iRadioInput {
   type: string,
 }
 
-export default iRadioInput;
+export default iCheckInput;

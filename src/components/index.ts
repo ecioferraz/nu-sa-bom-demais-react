@@ -1,13 +1,13 @@
 import Button from './Button';
+import CheckInput from './CheckInput';
 import ImageCard from './ImageCard';
-import RadioInput from './RadioInput';
 import TextCard from './TextCard';
 import TextInput from './TextInput';
 
 export {
   Button,
+  CheckInput,
   ImageCard,
-  RadioInput,
   TextCard,
   TextInput,
 };
