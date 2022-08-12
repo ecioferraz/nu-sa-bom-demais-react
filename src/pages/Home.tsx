@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { CheckboxInput } from '../components';
 import Loading from '../components/Loading';
 import SearchContext from '../contexts/SearchContext';
 import { iProduct } from '../interfaces';
@@ -10,9 +11,10 @@ import SearchForm from '../templates/SearchForm';
 export default function Home() {
   const { searchInput } = useContext(SearchContext);
   const [categories, setCategories] = useState<string[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState<iProduct[]>([]);
+  const [withDiscount, setWithDiscount] = useState<boolean>(false);
 
   const serializeCategories = (data: iProduct[]) => Array.from(
     new Set(data.map((product: iProduct) =>
@@ -38,13 +40,25 @@ export default function Home() {
   return (
     <main>
       <SearchForm />
-      { isLoading ? <Loading /> : <Categories
-        adjectives={ categories }
-        handleChange={ setSelectedCategory }
-      /> }
+      {
+        isLoading ? <Loading /> : <Categories
+          adjectives={ categories }
+          handleChange={ setSelectedCategory }
+        />
+      }
+      <CheckboxInput
+        className="discount-input"
+        options={ ['Com desconto'] }
+        type="checkbox"
+        handleClick={ setWithDiscount }
+        value={ withDiscount }
+      />
       <Products
         products={ displayedProducts
-          .filter(({ name }) => name.toLowerCase().includes(searchInput))
+          .filter(({ hasDiscount }) => withDiscount
+            ? hasDiscount && withDiscount : displayedProducts)
+          .filter(({ name }) =>
+            name.toLowerCase().includes(searchInput.toLowerCase()))
         }
       />
     </main>
