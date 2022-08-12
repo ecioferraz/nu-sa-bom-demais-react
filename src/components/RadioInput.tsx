@@ -18,7 +18,7 @@ export default function RadioInput({
             value={ option }
             onChange={ ({ target: { value } }) => handleChange(value) }
             type={ type }
-            defaultChecked={ type === 'radio' && i === 0 }
+            defaultChecked={ i === 0 }
           />
           { option }
         </label>
