@@ -1,14 +1,14 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import SearchProvider from './providers/SearchProvider';
+import Router from './routes/Router';
 
 function App() {
   return (
     <div className="App">
-      <SearchProvider>
-        <Home />
-      </SearchProvider>
+      <BrowserRouter>
+        <Router />
+      </BrowserRouter>
     </div>
   );
 }
