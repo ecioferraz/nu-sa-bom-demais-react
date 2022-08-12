@@ -1,20 +1,22 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { CheckboxInput } from '../components';
-import Loading from '../components/Loading';
-import SearchContext from '../contexts/SearchContext';
+import React, { useEffect, useState } from 'react';
+import { CheckboxInput, Loading } from '../components';
+import RangeInput from '../components/RangeInput';
 import { iProduct } from '../interfaces';
 import { getData } from '../services/APIRequests';
 import Categories from '../templates/Categories';
 import Products from '../templates/Products';
 import SearchForm from '../templates/SearchForm';
 
+const DISCOUNT_OPTION = ['Com desconto'];
+
 export default function Home() {
-  const { searchInput } = useContext(SearchContext);
+  const [searchInput, setSearchInput] = useState('');
   const [categories, setCategories] = useState<string[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>('');
   const [isLoading, setIsLoading] = useState(false);
   const [products, setProducts] = useState<iProduct[]>([]);
   const [withDiscount, setWithDiscount] = useState<boolean>(false);
+  const [priceRange, setPriceRange] = useState(1000);
 
   const serializeCategories = (data: iProduct[]) => Array.from(
     new Set(data.map((product: iProduct) =>
@@ -32,14 +34,26 @@ export default function Home() {
     getProducts();
   }, []);
 
-  const displayedProducts = selectedCategory === 'All'
+  const productsByCategory = selectedCategory === 'All'
     ? products
     : products.filter(({ details: { adjective } }) =>
       adjective.includes(selectedCategory));
 
+  const displayProducts = () => {
+    return productsByCategory
+      .filter(({ hasDiscount }) => withDiscount
+        ? hasDiscount && withDiscount : productsByCategory)
+      .filter(({ name }) =>
+        name.toLowerCase().includes(searchInput.toLowerCase()))
+      .filter(({ price }) => +price <= priceRange);
+  };
+
   return (
     <main>
-      <SearchForm />
+      <SearchForm
+        searchInput={ searchInput }
+        handleChange={ setSearchInput }
+      />
       {
         isLoading ? <Loading /> : <Categories
           adjectives={ categories }
@@ -48,18 +62,17 @@ export default function Home() {
       }
       <CheckboxInput
         className="discount-input"
-        options={ ['Com desconto'] }
+        options={ DISCOUNT_OPTION }
         type="checkbox"
         handleClick={ setWithDiscount }
         value={ withDiscount }
       />
+      <RangeInput
+        value={ priceRange }
+        handleChange={ setPriceRange }
+      />
       <Products
-        products={ displayedProducts
-          .filter(({ hasDiscount }) => withDiscount
-            ? hasDiscount && withDiscount : displayedProducts)
-          .filter(({ name }) =>
-            name.toLowerCase().includes(searchInput.toLowerCase()))
-        }
+        products={ displayProducts() }
       />
     </main>
   );

@@ -1,10 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { TextInput } from '../components';
-import SearchContext from '../contexts/SearchContext';
+import { iSearchForm } from '../interfaces';
 
-export default function SearchForm() {
-  const { searchInput, setSearchInput } = useContext(SearchContext);
-
+export default function SearchForm({
+  searchInput,
+  handleChange,
+}: iSearchForm) {
   return (
     <form>
       <TextInput
@@ -12,7 +13,7 @@ export default function SearchForm() {
         className="search-input"
         type='search'
         value={ searchInput }
-        handleChange={ setSearchInput }
+        handleChange={ handleChange }
         placeholder="Buscar por..."
       />
     </form>

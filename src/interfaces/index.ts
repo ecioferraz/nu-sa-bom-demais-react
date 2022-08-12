@@ -4,6 +4,8 @@ import { iCheckboxInput, iRadioInput } from './iCheckInput';
 import iImageCard from './iImageCard';
 import iProduct from './iProduct';
 import iProductCard from './iProductCard';
+import iRangeInput from './iRangeInput';
+import iSearchForm from './iSearchForm';
 import iTextCard from './iTextCard';
 import iTextInput from './iTextInput';
 
@@ -15,6 +17,8 @@ export type {
   iProduct,
   iProductCard,
   iRadioInput,
+  iRangeInput,
+  iSearchForm,
   iTextCard,
   iTextInput,
 };
