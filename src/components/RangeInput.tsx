@@ -12,7 +12,7 @@ export default function RangeInput({ handleChange, value }: iRangeInput) {
           value={ value }
           onChange={ ({ target: { value } }) => handleChange(+value) }
         />
-        { `R$ ${value.toFixed(2)}` }
+        { `$ ${value.toFixed(2)}` }
       </label>
     </>
   );

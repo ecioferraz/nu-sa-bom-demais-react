@@ -21,8 +21,8 @@ export default function ProductCard({
       />
       <TextCard
         text={ hasDiscount
-          ? (+price - +discountValue).toFixed(2).toString()
-          : price }
+          ? `$ ${(+price - +discountValue).toFixed(2).toString()}`
+          : `$ ${price}` }
       />
       <Button
         name="Adicionar ao carrinho"
