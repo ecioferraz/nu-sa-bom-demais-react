@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckInput } from '../components';
+import { RadioInput } from '../components';
 import { iCategories } from '../interfaces';
 
 export default function Categories({
@@ -9,7 +9,7 @@ export default function Categories({
   return (
     <aside>
       <h3>Categorias:</h3>
-      <CheckInput
+      <RadioInput
         className="categories"
         name="categories"
         handleChange={ handleChange }
