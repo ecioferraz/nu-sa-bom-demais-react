@@ -11,7 +11,7 @@ export default function RadioInput({
   return (
     <>
       {options.map((option, i) => (
-        <label key={ i }>
+        <label className="radio-label" key={ i }>
           <input
             className={ className }
             name={ name }
