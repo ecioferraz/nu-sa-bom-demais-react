@@ -25,7 +25,7 @@ export default function ProductCard({
           : `$ ${price}` }
       />
       <Button
-        name="Adicionar ao carrinho"
+        name="Add to cart"
         handleClick={ () => { return; } }
         className="add-btn"
       />

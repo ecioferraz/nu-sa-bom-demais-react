@@ -8,7 +8,7 @@ export default function Categories({
 }: iCategories) {
   return (
     <aside>
-      <h3>Categorias:</h3>
+      <h3>Categories:</h3>
       <RadioInput
         className="categories"
         name="categories"

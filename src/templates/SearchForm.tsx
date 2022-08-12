@@ -3,7 +3,7 @@ import { CheckboxInput, Loading, RangeInput, TextInput } from '../components';
 import { iSearchForm } from '../interfaces';
 import Categories from './Categories';
 
-const DISCOUNT_OPTION = ['Com desconto'];
+const DISCOUNT_OPTION = ['On sale'];
 
 export default function SearchForm({
   searchInput,
@@ -24,7 +24,7 @@ export default function SearchForm({
         type='search'
         value={ searchInput }
         handleChange={ setSearchInput }
-        placeholder="Buscar por..."
+        placeholder="Search"
       />
       {
         isLoading ? <Loading /> : <Categories
