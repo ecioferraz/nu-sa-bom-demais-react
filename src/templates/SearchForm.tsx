@@ -21,29 +21,27 @@ export default function SearchForm({
   return (
     <>
       <form className="search-form">
-        <fieldset>
-          <TextInput
-            name="search-input"
-            className="search-input"
-            type='search'
-            value={ searchInput }
-            handleChange={ setSearchInput }
-            placeholder="Search"
+        <TextInput
+          name="search-input"
+          className="search-input"
+          type='search'
+          value={ searchInput }
+          handleChange={ setSearchInput }
+          placeholder="Search"
+        />
+        <section className="search-options">
+          <CheckboxInput
+            className="discount-input"
+            options={ DISCOUNT_OPTION }
+            type="checkbox"
+            handleClick={ setWithDiscount }
+            value={ withDiscount }
           />
-          <section>
-            <CheckboxInput
-              className="discount-input"
-              options={ DISCOUNT_OPTION }
-              type="checkbox"
-              handleClick={ setWithDiscount }
-              value={ withDiscount }
-            />
-            <RangeInput
-              value={ priceRange }
-              handleChange={ setPriceRange }
-            />
-          </section>
-        </fieldset>
+          <RangeInput
+            value={ priceRange }
+            handleChange={ setPriceRange }
+          />
+        </section>
       </form>
       {
         isLoading ? <Loading /> : <Categories
