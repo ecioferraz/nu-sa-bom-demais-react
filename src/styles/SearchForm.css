@@ -1,0 +1,33 @@
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #2acc3d;
+  padding: 25px 30px 10px;
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+fieldset {
+  border: none;
+}
+
+.search-input {
+  border-radius: 5px;
+  color: #525252;
+  float: left;
+  font-size: 15px;
+  height: 36px;
+  line-height: 36px;
+  margin-right: 12px;
+  margin-bottom: 20px;
+  outline: medium none;
+  padding: 0 0 0 35px;
+  text-shadow: 1px 1px 0 white;
+  width: 385px;
+}
