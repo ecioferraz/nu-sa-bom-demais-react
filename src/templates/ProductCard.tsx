@@ -2,6 +2,8 @@ import React from 'react';
 import { Button, ImageCard, TextCard } from '../components';
 import { iProduct, iProductCard } from '../interfaces';
 
+import '../styles/ProductCard.css';
+
 export default function ProductCard({ product }: iProductCard) {
   const {
     gallery,

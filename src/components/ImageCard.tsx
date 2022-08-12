@@ -8,8 +8,6 @@ export default function ImageCard({ imageURL, name, className }: iImageCard) {
         alt={ `Imagem de ${name}.` }
         src={ imageURL }
         className={ className }
-        width="100"
-        height="80"
       />
     </div>
   );
