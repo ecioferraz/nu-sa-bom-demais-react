@@ -1,13 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { CheckboxInput, Loading } from '../components';
-import RangeInput from '../components/RangeInput';
 import { iProduct } from '../interfaces';
 import { getData } from '../services/APIRequests';
-import Categories from '../templates/Categories';
 import Products from '../templates/Products';
 import SearchForm from '../templates/SearchForm';
-
-const DISCOUNT_OPTION = ['Com desconto'];
 
 export default function Home() {
   const [searchInput, setSearchInput] = useState('');
@@ -52,24 +47,14 @@ export default function Home() {
     <main>
       <SearchForm
         searchInput={ searchInput }
-        handleChange={ setSearchInput }
-      />
-      {
-        isLoading ? <Loading /> : <Categories
-          adjectives={ categories }
-          handleChange={ setSelectedCategory }
-        />
-      }
-      <CheckboxInput
-        className="discount-input"
-        options={ DISCOUNT_OPTION }
-        type="checkbox"
-        handleClick={ setWithDiscount }
-        value={ withDiscount }
-      />
-      <RangeInput
-        value={ priceRange }
-        handleChange={ setPriceRange }
+        setSearchInput={ setSearchInput }
+        isLoading={ isLoading }
+        categories={ categories }
+        setSelectedCategory={ setSelectedCategory }
+        setWithDiscount={ setWithDiscount }
+        withDiscount={ withDiscount }
+        priceRange={ priceRange }
+        setPriceRange={ setPriceRange }
       />
       <Products
         products={ displayProducts() }
