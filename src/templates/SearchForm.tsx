@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Button, TextInput } from '../components';
+import { TextInput } from '../components';
 import SearchContext from '../contexts/SearchContext';
 
 export default function SearchForm() {
@@ -14,11 +14,6 @@ export default function SearchForm() {
         value={ searchInput }
         handleChange={ setSearchInput }
         placeholder="Buscar por..."
-      />
-      <Button
-        name="Buscar"
-        handleClick={ () => { return; } }
-        className="search-btn"
       />
     </form>
   );
