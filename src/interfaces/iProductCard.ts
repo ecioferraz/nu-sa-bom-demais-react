@@ -1,9 +1,7 @@
+import iProduct from './iProduct';
+
 interface iProductCard {
-  gallery: Array<string>,
-  name: string,
-  hasDiscount: boolean,
-  price: string,
-  discountValue: string,
+  product: iProduct,
 }
 
 export default iProductCard;

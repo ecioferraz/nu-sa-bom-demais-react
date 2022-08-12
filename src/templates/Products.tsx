@@ -1,30 +1,15 @@
 import React from 'react';
-import { iProduct } from '../interfaces';
+import { iProducts } from '../interfaces';
 import ProductCard from './ProductCard';
-
-interface iProducts {
-  products: Array<iProduct>
-}
 
 export default function Products({ products }: iProducts) {
   return (
     <>
       {
-        products.map(({
-          gallery,
-          name,
-          hasDiscount,
-          price,
-          discountValue,
-          id,
-        }) => (
+        products.map((product) => (
           <ProductCard
-            key={ id }
-            gallery={ gallery }
-            name={ name }
-            hasDiscount={ hasDiscount }
-            price={ price }
-            discountValue={ discountValue }
+            key={ product.id }
+            product={ product }
           />
         ))
       }
