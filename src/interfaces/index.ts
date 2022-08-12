@@ -1,6 +1,6 @@
 import iButton from './iButton';
 import iCategories from './iCategories';
-import iCheckInput from './iCheckInput';
+import { iCheckboxInput, iRadioInput } from './iCheckInput';
 import iImageCard from './iImageCard';
 import iProduct from './iProduct';
 import iProductCard from './iProductCard';
@@ -10,10 +10,11 @@ import iTextInput from './iTextInput';
 export type {
   iButton,
   iCategories,
-  iCheckInput,
+  iCheckboxInput,
   iImageCard,
   iProduct,
   iProductCard,
+  iRadioInput,
   iTextCard,
   iTextInput,
 };

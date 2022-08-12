@@ -1,13 +1,15 @@
 import Button from './Button';
-import CheckInput from './CheckInput';
+import CheckboxInput from './CheckboxInput';
 import ImageCard from './ImageCard';
+import RadioInput from './RadioInput';
 import TextCard from './TextCard';
 import TextInput from './TextInput';
 
 export {
   Button,
-  CheckInput,
+  CheckboxInput,
   ImageCard,
+  RadioInput,
   TextCard,
   TextInput,
 };

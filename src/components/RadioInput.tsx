@@ -1,13 +1,13 @@
 import React from 'react';
-import { iCheckInput } from '../interfaces';
+import { iRadioInput } from '../interfaces';
 
-export default function CheckInput({
+export default function RadioInput({
   className,
   name,
   options,
   type,
   handleChange,
-}: iCheckInput) {
+}: iRadioInput) {
   return (
     <>
       {options.map((option, i) => (
@@ -18,7 +18,7 @@ export default function CheckInput({
             value={ option }
             onChange={ ({ target: { value } }) => handleChange(value) }
             type={ type }
-            defaultChecked={ i === 0 }
+            defaultChecked={ type === 'radio' && i === 0 }
           />
           { option }
         </label>

@@ -1,6 +1,6 @@
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
-import { CheckInput } from '../../components';
+import { RadioInput } from '../../components';
 
 describe('Components', () => {
   let container: Element | null = null;
@@ -18,7 +18,7 @@ describe('Components', () => {
     }
   });
 
-  describe('<CheckInput />', () => {
+  describe('<RadioInput />', () => {
     let radioInput: HTMLInputElement | null | undefined;
     let label: HTMLLabelElement | null | undefined;
 
@@ -27,7 +27,7 @@ describe('Components', () => {
     beforeEach(() => {
       act(() => {
         render(
-          CheckInput({
+          RadioInput({
             className: 'test',
             name: 'test',
             options: ['test1', 'test2'],
