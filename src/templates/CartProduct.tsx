@@ -1,12 +1,19 @@
 import React from 'react';
 import { Button, ImageCard, TextCard } from '../components';
-import { iProductCard } from '../interfaces';
+import { iProduct, iProductCard } from '../interfaces';
 
 export default function CartProduct({ product: {
+  id,
   gallery,
   name,
   price,
 } }: iProductCard) {
+  const removeFromCart = () => {
+    const localCart = JSON.parse(localStorage.getItem('cart') as string);
+    const newCart = localCart.filter((product: iProduct) => product.id !== id);
+    localStorage.setItem('cart', JSON.stringify(newCart));
+  };
+
   return (
     <div>
       <ImageCard
@@ -22,7 +29,7 @@ export default function CartProduct({ product: {
       />
       <Button
         name="X"
-        handleClick={ () => {return;} }
+        handleClick={ removeFromCart }
         className="remove-btn"
       />
     </div>
