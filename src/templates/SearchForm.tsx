@@ -13,23 +13,14 @@ const DISCOUNT_OPTION = ['On sale'];
 export default function SearchForm({
   searchInput,
   setSearchInput,
-  isLoading,
-  categories,
-  setSelectedCategory,
   setWithDiscount,
   withDiscount,
   priceRange,
   setPriceRange,
 }: iSearchForm) {
   return (
-    <header>
-      {
-        isLoading ? <Loading /> : <Categories
-          adjectives={ categories }
-          handleChange={ setSelectedCategory }
-        />
-      }
-      <form className="search-header">
+    <header className="search-header">
+      <form>
         <div className="search-form">
           <TextInput
             name="search-input"
@@ -53,11 +44,11 @@ export default function SearchForm({
             />
           </section>
         </div>
-        <Link to="/cart" className="cart-btn">
-          <FontAwesomeIcon icon={ faCartShopping } size={ '2x' } />
-          <span>Checkout</span>
-        </Link>
       </form>
+      <Link to="/cart" className="cart-btn">
+        <FontAwesomeIcon icon={ faCartShopping } size={ '2x' } />
+        <span>Checkout</span>
+      </Link>
     </header>
   );
 }

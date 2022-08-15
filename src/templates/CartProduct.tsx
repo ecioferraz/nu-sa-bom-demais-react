@@ -7,7 +7,9 @@ export default function CartProduct({ product: {
   gallery,
   name,
   price,
-  description
+  description,
+  hasDiscount,
+  discountValue,
 } }: iProductCard) {
   const removeFromCart = () => {
     const localCart = JSON.parse(localStorage.getItem('cart') as string);
@@ -29,7 +31,9 @@ export default function CartProduct({ product: {
         text={ description }
       />
       <TextCard
-        text={ `$ ${price}` }
+        text={ hasDiscount
+          ? `$ ${(+price - +discountValue).toFixed(2).toString()}`
+          : `$ ${price}` }
       />
       <Button
         name="X"

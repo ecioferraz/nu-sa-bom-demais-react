@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Loading } from '../components';
 import { iProduct } from '../interfaces';
 import { getData } from '../services/APIRequests';
+import Categories from '../templates/Categories';
 import Products from '../templates/Products';
 import SearchForm from '../templates/SearchForm';
 
@@ -43,6 +45,12 @@ export default function Home() {
 
   return (
     <main>
+      {
+        isLoading ? <Loading /> : <Categories
+          adjectives={ categories }
+          handleChange={ setSelectedCategory }
+        />
+      }
       <SearchForm
         searchInput={ searchInput }
         setSearchInput={ setSearchInput }
