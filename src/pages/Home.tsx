@@ -34,14 +34,12 @@ export default function Home() {
     : products.filter(({ details: { adjective } }) =>
       adjective.includes(selectedCategory));
 
-  const displayProducts = () => {
-    return productsByCategory
-      .filter(({ hasDiscount }) => withDiscount
-        ? hasDiscount && withDiscount : productsByCategory)
-      .filter(({ name }) =>
-        name.toLowerCase().includes(searchInput.toLowerCase()))
-      .filter(({ price }) => +price <= priceRange);
-  };
+  const displayProducts = productsByCategory
+    .filter(({ hasDiscount }) => withDiscount
+      ? hasDiscount && withDiscount : productsByCategory)
+    .filter(({ name }) =>
+      name.toLowerCase().includes(searchInput.toLowerCase()))
+    .filter(({ price }) => +price <= priceRange);
 
   return (
     <main>
@@ -57,7 +55,7 @@ export default function Home() {
         setPriceRange={ setPriceRange }
       />
       <Products
-        products={ displayProducts() }
+        products={ displayProducts }
       />
     </main>
   );
