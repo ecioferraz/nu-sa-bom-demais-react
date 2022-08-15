@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button, ImageCard, TextCard } from '../components';
-import { iProduct, iProductCard } from '../interfaces';
+import { iProductCard } from '../interfaces';
+import addToCart from '../services/addToCart';
 
 import '../styles/ProductCard.css';
 
@@ -14,11 +15,6 @@ export default function ProductCard({ product }: iProductCard) {
     price,
     discountValue,
   } = product;
-
-  const addToCart = (item: iProduct) => {
-    const localCart = JSON.parse(localStorage.getItem('cart') as string) || [];
-    localStorage.setItem('cart', JSON.stringify([...localCart, item]));
-  };
 
   return (
     <div className="product-card">
