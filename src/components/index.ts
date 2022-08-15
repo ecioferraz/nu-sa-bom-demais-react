@@ -1,5 +1,6 @@
 import Button from './Button';
 import CheckboxInput from './CheckboxInput';
+import Header from './Header';
 import ImageCard from './ImageCard';
 import Loading from './Loading';
 import RadioInput from './RadioInput';
@@ -10,6 +11,7 @@ import TextInput from './TextInput';
 export {
   Button,
   CheckboxInput,
+  Header,
   ImageCard,
   Loading,
   RadioInput,

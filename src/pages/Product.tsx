@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { Button, ImageCard, Loading, TextCard } from '../components';
+import { Button, Header, ImageCard, Loading, TextCard } from '../components';
 import { iProduct } from '../interfaces';
 import { getData } from '../services/APIRequests';
 import addToCart from '../services/addToCart';
 
 import '../styles/Product.css';
-import Header from '../components/Header';
 
 export default function Product() {
   const [product, setProduct] = useState<iProduct>();
