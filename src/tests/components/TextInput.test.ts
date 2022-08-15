@@ -51,7 +51,6 @@ describe('Components', () => {
       expect(textInput?.getAttribute('class')).toBe('test');
       expect(textInput?.getAttribute('name')).toBe('test');
       expect(textInput?.value).toBe('test');
-      expect(textInput?.getAttribute('id')).toBe('test');
       expect(textInput?.getAttribute('type')).toBe('search');
       expect(textInput?.getAttribute('placeholder')).toBeNull();
     });
