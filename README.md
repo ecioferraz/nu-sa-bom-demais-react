@@ -11,7 +11,8 @@ A NuSaBomDemais é uma app e-commerce alimentada por uma API contendo produtos f
 
 ## Funcionalidades
 
-- Adicionar e remover produtos ao carrinho
+- Filtrar produtos por categoria, nome, valor e desconto.
+- Adicionar e remover produtos do carrinho.
 
 
 ## Rodando localmente
