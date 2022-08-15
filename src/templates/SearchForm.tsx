@@ -1,7 +1,6 @@
 import React from 'react';
-import { CheckboxInput, Loading, RangeInput, TextInput } from '../components';
+import { CheckboxInput, RangeInput, TextInput } from '../components';
 import { iSearchForm } from '../interfaces';
-import Categories from './Categories';
 
 import '../styles/SearchForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
