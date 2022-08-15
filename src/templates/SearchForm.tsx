@@ -22,7 +22,7 @@ export default function SearchForm({
   setPriceRange,
 }: iSearchForm) {
   return (
-    <section>
+    <header>
       {
         isLoading ? <Loading /> : <Categories
           adjectives={ categories }
@@ -58,6 +58,6 @@ export default function SearchForm({
           <span>Checkout</span>
         </Link>
       </form>
-    </section>
+    </header>
   );
 }
