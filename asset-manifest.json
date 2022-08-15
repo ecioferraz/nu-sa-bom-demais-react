@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/nu-sa-bom-demais-react/static/css/main.009c9e16.css",
+    "main.js": "/nu-sa-bom-demais-react/static/js/main.35e840d1.js",
+    "static/js/787.ad419b6a.chunk.js": "/nu-sa-bom-demais-react/static/js/787.ad419b6a.chunk.js",
+    "index.html": "/nu-sa-bom-demais-react/index.html",
+    "main.009c9e16.css.map": "/nu-sa-bom-demais-react/static/css/main.009c9e16.css.map",
+    "main.35e840d1.js.map": "/nu-sa-bom-demais-react/static/js/main.35e840d1.js.map",
+    "787.ad419b6a.chunk.js.map": "/nu-sa-bom-demais-react/static/js/787.ad419b6a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.009c9e16.css",
+    "static/js/main.35e840d1.js"
+  ]
+}
