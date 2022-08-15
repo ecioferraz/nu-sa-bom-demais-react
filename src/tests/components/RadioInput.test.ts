@@ -1,5 +1,5 @@
 import { render, unmountComponentAtNode } from 'react-dom';
-import { act } from 'react-dom/test-utils';
+import { act, Simulate } from 'react-dom/test-utils';
 import { RadioInput } from '../../components';
 
 describe('Components', () => {
@@ -22,7 +22,7 @@ describe('Components', () => {
     let radioInput: HTMLInputElement | null | undefined;
     let label: HTMLLabelElement | null | undefined;
 
-    const onChange = jest.fn;
+    const onChange = jest.fn();
 
     beforeEach(() => {
       act(() => {
@@ -53,6 +53,14 @@ describe('Components', () => {
       expect(radioInput?.getAttribute('name')).toBe('test');
       expect(radioInput?.value).toBe('test1');
       expect(label?.textContent).toBe('test1');
+    });
+
+    it('should respond to change correctly', () => {
+      act(() => {
+        Simulate.change(radioInput as HTMLInputElement);
+        Simulate.change(radioInput as HTMLInputElement);
+      });
+      expect(onChange).toHaveBeenCalledTimes(2);
     });
   });
 });
