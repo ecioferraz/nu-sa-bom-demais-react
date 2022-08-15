@@ -54,8 +54,8 @@ export default function SearchForm({
           </section>
         </div>
         <Link to="/cart" className="cart-btn">
-          <span>Ver carrinho </span>
           <FontAwesomeIcon icon={ faCartShopping } size={ '2x' } />
+          <span>Checkout</span>
         </Link>
       </form>
     </section>

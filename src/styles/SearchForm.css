@@ -61,6 +61,7 @@
   align-items: center;
   color: #fff;
   display: flex;
+  flex-direction: column;
   position: fixed;
   margin-left: 25px;
   margin-top: 10px;

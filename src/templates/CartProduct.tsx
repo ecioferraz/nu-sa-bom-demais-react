@@ -7,6 +7,7 @@ export default function CartProduct({ product: {
   gallery,
   name,
   price,
+  description
 } }: iProductCard) {
   const removeFromCart = () => {
     const localCart = JSON.parse(localStorage.getItem('cart') as string);
@@ -15,14 +16,17 @@ export default function CartProduct({ product: {
   };
 
   return (
-    <div>
+    <div className="cart-product-card">
       <ImageCard
         imageURL={ gallery[0] }
         name={ name }
-        className="product-image"
+        className="cart-product-image"
       />
       <TextCard
         text={ name }
+      />
+      <TextCard
+        text={ description }
       />
       <TextCard
         text={ `$ ${price}` }
